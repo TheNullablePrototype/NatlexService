@@ -7,8 +7,9 @@ import com.prototype.natlexservice.service.TaskHandler;
 import com.prototype.natlexservice.service.impl.task.FileExportTask;
 import com.prototype.natlexservice.service.impl.task.ProgressedTask;
 import com.prototype.natlexservice.util.ThreadFactoryBuilder;
-import lombok.Getter;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.Value;
+import lombok.experimental.NonFinal;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -19,22 +20,19 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
+@RequiredArgsConstructor
+@Value
 public class TaskHandlerImpl implements TaskHandler {
 
-    private final AtomicInteger counter = new AtomicInteger();
-    private final Map<Integer, ProgressedTask<?>> tasks = new ConcurrentHashMap<>();
+    AtomicInteger counter = new AtomicInteger();
+    Map<Integer, ProgressedTask<?>> tasks = new ConcurrentHashMap<>();
 
-    @Getter
-    private ExecutorService executorService;
-    @Getter
-    private ScheduledExecutorService scheduledExecutorService;
+    @NonFinal
+    ExecutorService executorService;
+    @NonFinal
+    ScheduledExecutorService scheduledExecutorService;
 
-    private final TaskHandlerProps props;
-
-    @Autowired
-    public TaskHandlerImpl(TaskHandlerProps props) {
-        this.props = props;
-    }
+    TaskHandlerProps props;
 
     @Override
     public int addTask(ProgressedTask<?> task) {

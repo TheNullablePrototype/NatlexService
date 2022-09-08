@@ -5,8 +5,8 @@ import com.prototype.natlexservice.exception.NotAuthorizationException;
 import com.prototype.natlexservice.http.response.upload.ImportFileStatusResponse;
 import com.prototype.natlexservice.http.response.upload.UploadFileResponse;
 import com.prototype.natlexservice.service.ImportService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,16 +25,11 @@ import java.util.Objects;
 @Slf4j
 @RestController
 @Validated
+@RequiredArgsConstructor
 public class ImportController {
 
     private final ImportService importService;
     private final AuthProps props;
-
-    @Autowired
-    public ImportController(ImportService importService, AuthProps props) {
-        this.importService = importService;
-        this.props = props;
-    }
 
     @PostMapping(path = "/api/import", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     @ResponseStatus(HttpStatus.CREATED)

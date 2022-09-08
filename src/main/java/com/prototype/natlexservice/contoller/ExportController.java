@@ -8,8 +8,8 @@ import com.prototype.natlexservice.http.response.export.ExportFileStatusResponse
 import com.prototype.natlexservice.service.ExportService;
 import com.prototype.natlexservice.service.SectionService;
 import com.prototype.natlexservice.service.TaskHandler;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -22,6 +22,7 @@ import java.util.Objects;
 @Slf4j
 @RestController
 @Validated
+@RequiredArgsConstructor
 public class ExportController {
 
     private final SectionService sectionService;
@@ -29,14 +30,6 @@ public class ExportController {
     private final TaskHandler taskHandler;
 
     private final AuthProps props;
-
-    @Autowired
-    public ExportController(SectionService sectionService, ExportService exportService, TaskHandler handler, AuthProps props) {
-        this.sectionService = sectionService;
-        this.exportService = exportService;
-        this.taskHandler = handler;
-        this.props = props;
-    }
 
     @GetMapping("/api/export/")
     @ResponseStatus(HttpStatus.CREATED)

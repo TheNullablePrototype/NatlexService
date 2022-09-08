@@ -4,8 +4,8 @@ import com.prototype.natlexservice.config.AuthProps;
 import com.prototype.natlexservice.exception.NotAuthorizationException;
 import com.prototype.natlexservice.http.response.section.SectionResponse;
 import com.prototype.natlexservice.service.SectionService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,16 +19,11 @@ import java.util.Objects;
 @RequestMapping(path = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
 @Slf4j
+@RequiredArgsConstructor
 public class SectionsController {
 
     private final SectionService sectionService;
     private final AuthProps props;
-
-    @Autowired
-    public SectionsController(SectionService sectionService, AuthProps props) {
-        this.sectionService = sectionService;
-        this.props = props;
-    }
 
     @GetMapping
     @RequestMapping("/sections")

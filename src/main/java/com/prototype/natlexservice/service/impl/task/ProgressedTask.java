@@ -14,8 +14,6 @@ import java.util.concurrent.Callable;
 @Getter
 public abstract class ProgressedTask<V> extends ListenableFutureTask<V> implements ListenableFutureCallback<V> {
 
-    @Setter
-    @Getter
     private String name;
 
     private ProgressType progressType = ProgressType.IN_PROGRESS;

@@ -6,6 +6,7 @@ import com.prototype.natlexservice.model.Section;
 import com.prototype.natlexservice.service.ExportService;
 import com.prototype.natlexservice.service.TaskHandler;
 import com.prototype.natlexservice.service.impl.task.FileExportTask;
+import lombok.RequiredArgsConstructor;
 import lombok.Value;
 import org.springframework.stereotype.Service;
 
@@ -15,13 +16,10 @@ import java.util.Optional;
 
 @Service
 @Value
+@RequiredArgsConstructor
 public class ExportServiceImpl implements ExportService {
 
     TaskHandler taskHandler;
-
-    public ExportServiceImpl(TaskHandler taskHandler) {
-        this.taskHandler = taskHandler;
-    }
 
     @Override
     public int exportFile(List<Section> sections) {

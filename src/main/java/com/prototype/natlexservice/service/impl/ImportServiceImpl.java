@@ -5,23 +5,20 @@ import com.prototype.natlexservice.service.ImportService;
 import com.prototype.natlexservice.service.SectionService;
 import com.prototype.natlexservice.service.TaskHandler;
 import com.prototype.natlexservice.service.impl.task.FileImportTask;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.Value;
 import org.springframework.stereotype.Service;
 
 import java.nio.file.Path;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
+@Value
 public class ImportServiceImpl implements ImportService {
 
-    private final SectionService sectionService;
-    private final TaskHandler taskHandler;
-
-    @Autowired
-    public ImportServiceImpl(SectionService sectionService, TaskHandler taskHandler) {
-        this.sectionService = sectionService;
-        this.taskHandler = taskHandler;
-    }
+    SectionService sectionService;
+    TaskHandler taskHandler;
 
     @Override
     public int importFile(Path path) {
