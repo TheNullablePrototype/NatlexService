@@ -12,6 +12,9 @@ Features:
 
 Example API Request and Response:
 
+All requests must have an authorization token in the header.
+`'Authorization' : 'token'`
+
 ```
 GET http://localhost:8080/api/sections - Get a list of all Sections.
 ```
@@ -141,7 +144,7 @@ If your IDE didn't generate it on its own when importing the project create Spri
 `com.prototype.natlexservice.NatlexServiceApplication`
 
 # Settings
-Many settings, including database data, can be found in `application.properties` for runtime 
+Many settings, including database data, authorization token, can be found in `application.properties` for runtime 
 
 [//]: # (and in `application-test.properties` for test.)
    
