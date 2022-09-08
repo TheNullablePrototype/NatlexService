@@ -1,0 +1,44 @@
+{
+  "properties": [
+    {
+      "name": "task.handler.thread.pool.queueMaxCapacity",
+      "type": "java.lang.Integer",
+      "description": "Max queue capacity [ArrayBlockingQueue]."
+    },
+    {
+      "name": "task.handler.thread.pool.threads.size",
+      "type": "java.lang.Integer",
+      "description": "The number of threads to keep in the pool, even if they are idle."
+    },
+    {
+      "name": "task.handler.thread.pool.threadsSizeMax",
+      "type": "java.lang.Integer",
+      "description": "The maximum number of threads to allow in the pool."
+    },
+    {
+      "name": "task.handler.thread.pool.keepAliveTime",
+      "type": "java.lang.Long",
+      "description": "When the number of threads is greater than the core, this is the maximum time that excess idle threads will wait for new tasks before terminating."
+    },
+    {
+      "name": "task.handler.thread.pool.shutdownTimeout",
+      "type": "java.lang.Long",
+      "description": "The maximum time to wait in milliseconds to shutdown executors."
+    },
+    {
+      "name": "task.handler.thread.pool.scheduledThreadsSize",
+      "type": "java.lang.Integer",
+      "description": "The number of threads in ScheduledThreadPool to keep in the pool, even if they are idle."
+    },
+    {
+      "name": "task.handler.thread.pool.exportAliveTime",
+      "type": "java.lang.Long",
+      "description": "The maximum time to wait download exported file (in minutes)."
+    },
+    {
+      "name": "authorization.token",
+      "type": "java.lang.String",
+      "description": "A token for authorization to the API, which should be in the request header."
+    }
+  ]
+}
