@@ -1,4 +1,4 @@
-package com.prototype.natlexservice.contoller;
+package com.prototype.natlexservice.controller;
 
 import com.prototype.natlexservice.config.AuthProps;
 import com.prototype.natlexservice.enums.ProgressType;
