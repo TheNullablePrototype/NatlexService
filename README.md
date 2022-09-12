@@ -126,9 +126,7 @@ GET http://localhost:8080/api/export/file/{id} - returns a file by Job ID (throw
 ```
 
 Structure of file for importing and exporting:
-<details>
 ![img.png](img.png)
-</details>
 
 # HOW TO RUN:
 
