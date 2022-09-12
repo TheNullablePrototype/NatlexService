@@ -51,7 +51,8 @@ public class TaskHandlerImpl implements TaskHandler {
                 task.cancel(false);
             }
             if (task instanceof FileExportTask exportTask) {
-                FileHelper.deleteIfExists(exportTask.getPath());
+                if (exportTask.getPath() != null) // if task not yet completed
+                    FileHelper.deleteIfExists(exportTask.getPath());
             }
         }
     }
