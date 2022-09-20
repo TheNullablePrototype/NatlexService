@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.Value;
 import lombok.experimental.NonFinal;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -30,7 +29,6 @@ public class SectionServiceImpl implements SectionService {
     }
 
     @Override
-    @Transactional
     public void saveAll(List<Section> sections) {
         this.repository.saveAll(sections);
     }
